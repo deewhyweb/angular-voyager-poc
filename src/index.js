@@ -37,10 +37,10 @@ angular.module("app", []).controller("HelloWorldCtrl", function($scope) {
       })
       //Print the response of the query
       .then(({ data }) => {
-        setTimeout(() => {
+        
           $scope.message = data.allTasks[0].name;
           $scope.$apply();
-        },0)
+        
         
       });
   });
