@@ -15,15 +15,6 @@ angular.module("app", []).controller("HelloWorldCtrl", function($scope) {
   };
 
   createClient(config).then(client => {
-    const options = gql`
-      query allTasks {
-        allTasks {
-          name
-          created
-        }
-      }
-    `;
-
     client
       .query({
         fetchPolicy: "network-only",
@@ -37,11 +28,8 @@ angular.module("app", []).controller("HelloWorldCtrl", function($scope) {
       })
       //Print the response of the query
       .then(({ data }) => {
-        
           $scope.message = data.allTasks[0].name;
           $scope.$apply();
-        
-        
       });
   });
 });
